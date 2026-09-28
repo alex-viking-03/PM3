@@ -1,0 +1,7 @@
+dist/
+build/
+*.spec
+.idea/
+*/.idea/
+venv/
+*/venv/
