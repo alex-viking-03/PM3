@@ -12,7 +12,7 @@ class BossFight:
         ]
         self.monster = Enemy(
             name = "AZRAGOR",
-            hp = 180,
+            hp = 270,
             reward = 0,
             description = "Azragor has burned entire cities and slaughtered every army sent to stop him."
                           "The king offers a fortune for his head, but no hunter has ever returned. "
@@ -60,8 +60,8 @@ Now or never…''')
         clear_console()
 
         print('''Entering the room, you see this monster. The only thing he knows, he wants to kill you.
-He don't khon you, but you are already his main enemy
-.
+He don't know you, but you are already his main enemy.
+
 He stands up and your fight starts. It's only you and him. One of you will stay here, dead, and other will
 leave this room. Who will it be?''')
 
@@ -74,9 +74,9 @@ leave this room. Who will it be?''')
             clear_console()
             print(f"HP: {self.monster.hp}")
 
-            if self.monster.hp > 120:
+            if self.monster.hp > 180:
                 self.stage = 1
-            elif self.monster.hp > 80:
+            elif self.monster.hp > 90:
                 self.stage = 2
             elif self.monster.hp > 0:
                 self.stage = 3
@@ -89,12 +89,12 @@ leave this room. Who will it be?''')
 
             for attack in incoming_attack:
                 correct_order += attack['parry']
-            print(correct_order)
+
             start = time.monotonic()
             answer = input("Try to parry that: ")
             end = time.monotonic() - start
 
-            if end > 5:
+            if end > 10:
                 print(f"What's wrong with you, dumbass? You got {self.monster.damage} HP")
                 self.hero.get_damage(self.monster.damage)
                 time.sleep(2)
